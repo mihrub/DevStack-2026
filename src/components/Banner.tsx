@@ -1,4 +1,3 @@
-import React from 'react';
 import BannerIMG from '../assets/banner-stack.png'
 const Banner = () => {
     return (
