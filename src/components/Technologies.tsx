@@ -1,4 +1,4 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { Technology } from "../types/technology";
 import Stack from "./Stack";
 import Card from "./Card";
@@ -9,7 +9,9 @@ interface TechnologiesProps {
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
   const technologies = use(technologiesPromise);
-  console.log(technologies);
+  // console.log(technologies);
+  const [selectedStack,setSelectedStack] = useState<Technology[]>([]);
+
   return (
     <section>
       <h2 className="pl-15 font-bold text-2xl">
@@ -23,8 +25,8 @@ const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
       </p>
 
       <div className="flex gap-6 mt-10 pl-15">
-        <Card technologies={technologies}></Card>
-        <Stack></Stack>
+        <Card technologies={technologies} selectedStack = {selectedStack} setSelectedStack = {setSelectedStack} ></Card>
+        <Stack selectedStack = {selectedStack} setSelectedStack = {setSelectedStack} ></Stack>
       </div>
       
     </section>

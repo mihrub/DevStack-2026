@@ -1,14 +1,30 @@
 import { FaStar } from "react-icons/fa";
 import type { Technology } from "../types/technology";
+import { type Dispatch, type SetStateAction } from "react";
+import { toast } from "react-toastify";
 
 interface TechProps{
-    technologies : Technology[]
+    technologies : Technology[];
+    selectedStack : Technology[];
+    setSelectedStack : Dispatch<SetStateAction<Technology[]>>;
 }
 
-const Card = ({technologies} : TechProps) => {
+const Card = ({technologies, selectedStack, setSelectedStack} : TechProps) => {
+  
+  const handleAddToStack = (tech :Technology) =>{
+    const matched = selectedStack.filter((item) => item.id === tech.id);
+    if(matched.length > 0){
+      toast.warning(`${tech.name} is already in your stack`);
+      return;
+    }
+    setSelectedStack([...selectedStack,tech]);
+    toast.success(`${tech.name} added to your stack!`);
+  }
     return (
         <div className="grid flex-1 grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-3 min-w-0">
-          {technologies.map((technology: Technology) => (
+          {technologies.map((technology: Technology) => {
+            const isAdded = selectedStack.filter((item) => item.id === technology.id).length > 0;
+            return(
             <div
               key={technology.id}
               className="card border border-gray-100 bg-base-100 shadow-sm w-full min-w-0"
@@ -42,12 +58,14 @@ const Card = ({technologies} : TechProps) => {
                     {technology.rating}
                   </span>
                 </div>
-                <button className="btn btn-block bg-gray-900 text-white mt-3">
-                  Add to Stack
+                <button className="btn btn-block bg-gray-900 text-white mt-3"
+                onClick={() => handleAddToStack(technology)} disabled = {isAdded}>
+                  {isAdded ? "Added to Stack" : "Add to Stack"}
                 </button>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
     );
 };

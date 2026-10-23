@@ -10,35 +10,35 @@ const Footer = () => {
             <img src= {Logo} alt="Logo" className='mb-3'/>
             <p className='text-gray-500 mb-4'>Curated tools, technologies, and resources for developers building <br /> modern software.</p>
             <ul className='flex gap-7 items-center justify-baseline'>
-                <li className='cursor-pointer'>Github</li>
-                <li className='cursor-pointer'>Twitter</li>
-                <li className='cursor-pointer'>Linkedin</li>
+                <li className='cursor-pointer hover:text-pink-400'>Github</li>
+                <li className='cursor-pointer hover:text-pink-400'>Twitter</li>
+                <li className='cursor-pointer hover:text-pink-400'>Linkedin</li>
             </ul>
         </div>
 
         <div>
             <h3 className='font-semibold mb-2'>Product</h3>
             <ul className='grid gap-1'>
-                <li>Home</li>
-                <li>Technologies</li>
-                <li>Projects</li>
+                <li className='cursor-pointer hover:text-pink-400'>Home</li>
+                <li className='cursor-pointer hover:text-pink-400'>Technologies</li>
+                <li className='cursor-pointer hover:text-pink-400'>Projects</li>
             </ul>
         </div>
 
         <div>
             <h3 className='font-semibold mb-2'>Company</h3>
             <ul className='grid gap-1'>
-                <li>About</li>
-                <li>Contact</li>
-                <li>Careers</li>
+                <li className='cursor-pointer hover:text-pink-400'>About</li>
+                <li className='cursor-pointer hover:text-pink-400'>Contact</li>
+                <li className='cursor-pointer hover:text-pink-400'>Careers</li>
             </ul>
         </div>
 
         <div>
             <h3 className='font-semibold mb-2'>Legal</h3>
             <ul className='grid gap-1'>
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
+                <li className='cursor-pointer hover:text-pink-400'>Privacy Policy</li>
+                <li className='cursor-pointer hover:text-pink-400'>Terms of Service</li>
             </ul>
         </div>
         </section>
